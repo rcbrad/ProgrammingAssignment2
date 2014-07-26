@@ -1,31 +1,34 @@
-## Put comments here that give an overall description of what your
-## functions do
+## These functions will cache an inverted matrix for later use. 
+## when called, it will return the the cached matrix if it exists
+## or calculate the inverse and then return it. 
 
-## Write a short comment describing this function
+## this function caches the matrix
 
 makeCacheMatrix <- function(x = matrix()) {
 
-   m <- null
+   m <- NULL 
    
    set <- function(y) {
-      x <<- y
-      m <- null
+      x <<- y 
+      m <<- NULL 
    }
    
    get <- function () x 
       
+   
    setmatrix <- function(solve) m <<- solve
    getmatrix <- function() m
    
    list (set = set, get = get, 
-         setmatrix = setmatrix, getmatrix = getmatrix)
+         setmatrix = setmatrix, 
+         getmatrix = getmatrix)
 }
 
 
-## Write a short comment describing this function
+## returns cached matrix if it exists or inverts matrix then returns it
 
 cacheSolve <- function(x = matrix(), ...) {
-        ## Return a matrix that is the inverse of 'x'
+      ## Return a matrix that is the inverse of 'x'
       m <- x$getmatrix()
       
       if(!is.null(m)) {
